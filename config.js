@@ -1,7 +1,7 @@
 // Founding 25 settings: edit here only. No names or addresses in this file.
 window.F25 = {
-  offerTitle: "Half Off For Founding Members",
-  offerTerms: "Final terms coming soon. Options being decided: 2 years paid upfront at half price, or 1 year at 30% off.",
+  offerTitle: "2 Years For The Price Of 1",
+  offerTerms: "Be One Of The First 25 Homes. Option A: pay 2 years upfront at half price (a $99/mo plan is $1,188 for 24 months). Option B: pay 1 year upfront at 30% off (about $832). Pick one; it replaces First Month Free.",
   deadline: "Claim By December 15",
   deadlineIsExample: true,          // shows "(example date)" until final
   serviceStart: "Service Begins The Week Of January 11",
