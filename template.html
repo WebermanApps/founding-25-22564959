@@ -45,7 +45,7 @@ footer{margin-top:34px;text-align:center;color:#8a8a8a;font-size:14px}
  <div class="video" id="vid"></div>
  <div class="eyebrow">A Personal Invite</div>
  <h1 id="hl"></h1>
- <div class="note"><p id="hi"></p><p>I'm starting something new and you're one of the first people I wanted to tell. It's called Smart Upkeep: one trusted tech who looks after your home every month, so small things never become big things.</p><p>I'm opening it to just 25 founding homes first, and I'd love yours to be one of them.</p><div class="sig">Machan</div></div>
+ <div class="note"><p id="hi"></p><p>I'm starting something new and you're one of the first people I wanted to tell. It's called Smart Upkeep: one trusted tech who looks after your home every month, so small things never become big things.</p><p>I'm opening it to just 50 founding homes first, and I'd love yours to be one of them.</p><div class="sig">Machan</div></div>
  <h2>What Smart Upkeep Is</h2>
  <div class="cards">
   <div class="card"><div class="n">1</div><div><h3>A Monthly Tech Visit</h3><p>The same friendly tech comes every month to check, tune and fix the little things.</p></div></div>
@@ -53,7 +53,7 @@ footer{margin-top:34px;text-align:center;color:#8a8a8a;font-size:14px}
   <div class="card"><div class="n">3</div><div><h3>Ask Anything By Text</h3><p>Not sure about a noise, a leak or a quote? Just text us and get a real answer.</p></div></div>
  </div>
  <div class="start" id="start"></div>
- <div class="offer"><div class="tag">Founding 25 · Sent By Text</div><h2 id="ot"></h2><p id="oterms"></p><div class="opts" id="opts"></div><span class="deadline" id="dl"></span><div class="offsig"><span class="hand">Machan</span></div></div>
+ <div class="offer"><div class="tag">Founding 50 · Sent By Text</div><h2 id="ot"></h2><p id="oterms"></p><div class="opts" id="opts"></div><span class="deadline" id="dl"></span><div class="offsig"><span class="hand">Machan</span></div></div>
  <div class="btns">
   <a class="btn pri" id="claim" href="#">Claim My Spot</a>
   <p class="fine" id="claimfine">No payment now. This just tells Machan you're in.</p>
@@ -79,13 +79,13 @@ function render(h){
  document.getElementById('hi').textContent=h.first+',';
  document.getElementById('start').textContent=C.serviceStart;
  document.getElementById('ot').textContent=C.offerTitle;document.getElementById('oterms').textContent=C.offerTerms;
- const op=document.getElementById('opts');op.textContent='';(C.options||[]).forEach(o=>{const d=document.createElement('div');d.className='opt';[['span','ol',o.label],['h3','',o.title],['span','op',o.price],['small','',o.detail]].forEach(x=>{const e=document.createElement(x[0]);if(x[1])e.className=x[1];e.textContent=x[2]||'';d.append(e)});op.append(d)});
+ const op=document.getElementById('opts');op.textContent='';op.style.gridTemplateColumns='repeat('+Math.max(1,Math.min(2,(C.options||[]).length))+',1fr)';(C.options||[]).forEach(o=>{const d=document.createElement('div');d.className='opt';[['span','ol',o.label],['h3','',o.title],['span','op',o.price],['small','',o.detail]].forEach(x=>{const e=document.createElement(x[0]);if(x[1])e.className=x[1];e.textContent=x[2]||'';d.append(e)});op.append(d)});
  document.getElementById('dl').innerHTML='';document.getElementById('dl').append(C.deadline);if(C.deadlineIsExample){const s=document.createElement('small');s.textContent='(example date)';document.getElementById('dl').append(s)}
  const v=document.getElementById('vid');
  if(C.video.ready&&C.video.src){v.innerHTML='<video controls playsinline preload="metadata"></video>';const el=v.firstChild;el.src=B+C.video.src;el.poster=B+C.video.poster}
  else v.innerHTML='<img src="'+B+C.video.poster+'" alt=""><div class="soon">Video Coming Soon<small>A 60-second hello from Machan</small></div>';
  const app=document.getElementById('app');app.href=C.appUrl;
- const cl=document.getElementById('claim'),msg="Hi Machan, it's "+h.first+". Count us in as a Founding 25 home for Smart Upkeep!";
+ const cl=document.getElementById('claim'),msg="Hi Machan, it's "+h.first+". Count us in as a Founding 50 home for Smart Upkeep!";
  if(C.smsNumber){const ios=/iPhone|iPad|Mac/.test(navigator.userAgent);cl.href='sms:'+C.smsNumber+(ios?'&':'?')+'body='+encodeURIComponent(msg)}
  else cl.onclick=e=>{e.preventDefault();toast('Text Machan "Count us in" — claim link goes live soon')};
  document.getElementById('share').onclick=async()=>{const d={title:'Smart Upkeep',text:'Smart Upkeep: a monthly home tech, a Home Record, and text-anything help.',url:C.appUrl};
